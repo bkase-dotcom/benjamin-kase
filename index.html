@@ -62,24 +62,27 @@
       min-height: 128px;
       position: relative;
       border-radius: 50%;
+      /* Per-card glow color tokens — overridden inline on each card */
+      --glow-ring:   rgba(255, 255, 255, 0.75);
+      --glow-top:    rgba(240, 240, 240, 0.45);
+      --glow-side:   rgba(200, 200, 200, 0.38);
+      --glow-bottom: rgba(180, 180, 160, 0.32);
+      --glow-bloom:  rgba(200, 200, 200, 0.16);
       box-shadow:
         0 0 0 2px rgba(255,255,255,0.10),
         0 0 0 5px rgba(255,255,255,0.04),
         0 4px 12px rgba(0,0,0,0.3);
       transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    /* Hover: crisp ring + directional ambient glow via box-shadow only */
+    /* Hover: crisp ring + directional ambient glow — colors from per-card tokens */
     .project-card:hover .card-peephole-wrap {
       box-shadow:
-        /* crisp cool-blue ring */
-        0 0 0 2px rgba(140, 205, 255, 0.88),
-        /* ambient glow — cool at top, accent at sides, warm at bottom */
-        0 -12px 20px rgba(212, 238, 255, 0.55),
-        12px   0 20px rgba(110, 182, 255, 0.50),
-        0  12px 20px rgba(255, 190, 100, 0.44),
-        -12px  0 20px rgba(110, 182, 255, 0.50),
-        /* soft overall bloom */
-        0 0 28px rgba(110, 182, 255, 0.22),
+        0 0 0 2px var(--glow-ring),
+        0 -12px 22px var(--glow-top),
+        12px    0 22px var(--glow-side),
+        0  12px 22px var(--glow-bottom),
+        -12px   0 22px var(--glow-side),
+        0 0 32px var(--glow-bloom),
         0 4px 16px rgba(0,0,0,0.4);
     }
     /*
@@ -321,7 +324,12 @@
             <p>A connected rehabilitation service — from wearable strain and sEMG sensors, through a real-time watchOS exercise app, to a clinician-facing EHR extension embedded in WebPT. Service design, interaction design, and a working prototype.</p>
             <span class="card-arrow">→</span>
           </div>
-          <div class="card-peephole-wrap">
+          <div class="card-peephole-wrap" style="
+            --glow-ring:   rgba(80, 215, 255, 0.82);
+            --glow-top:    rgba(180, 240, 255, 0.50);
+            --glow-side:   rgba(80, 200, 250, 0.44);
+            --glow-bottom: rgba(60, 160, 230, 0.36);
+            --glow-bloom:  rgba(100, 210, 255, 0.20);">
             <div class="card-peephole">
               <img class="peephole-img" src="smartstretch/assets/motion-icon.png" alt="Motion app icon" width="128" height="128">
             </div>
@@ -342,9 +350,14 @@
             <p>Hall effect sensor to MIDI pipeline with force-displacement curve tuning. 17 years of piano training made rigorous through engineering methodology.</p>
             <span class="card-arrow">→</span>
           </div>
-          <div class="card-peephole-wrap">
+          <div class="card-peephole-wrap" style="
+            --glow-ring:   rgba(255, 228, 160, 0.80);
+            --glow-top:    rgba(255, 245, 210, 0.48);
+            --glow-side:   rgba(255, 200, 100, 0.42);
+            --glow-bottom: rgba(240, 150, 50,  0.38);
+            --glow-bloom:  rgba(255, 195, 90,  0.18);">
             <div class="card-peephole">
-              <img class="peephole-img" src="keyboard/assets/octave-v2.jpeg" alt="Assembled keyboard octave prototype" width="128" height="128" loading="eager" decoding="sync">
+              <img class="peephole-img" src="keyboard/assets/octave-v2-thumb.jpeg" alt="Assembled keyboard octave prototype" width="128" height="128" loading="eager" decoding="sync">
             </div>
           </div>
         </a>
@@ -363,7 +376,12 @@
             <p>Interactive traceability tool for LA homelessness spending data. Transparency isn't publishing reports — it's making spending traceable throughout its lifecycle.</p>
             <span class="card-arrow">→</span>
           </div>
-          <div class="card-peephole-wrap">
+          <div class="card-peephole-wrap" style="
+            --glow-ring:   rgba(200, 190, 130, 0.78);
+            --glow-top:    rgba(240, 235, 195, 0.46);
+            --glow-side:   rgba(200, 185, 120, 0.40);
+            --glow-bottom: rgba(180, 155, 80,  0.36);
+            --glow-bloom:  rgba(200, 185, 120, 0.17);">
             <div class="card-peephole">
               <img class="peephole-img" src="audit-trail/app/assets/logo.png" alt="Audit Trail logo" width="128" height="128">
             </div>
